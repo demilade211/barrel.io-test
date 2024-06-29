@@ -1,16 +1,14 @@
 // app/api/orders/[id].js
 import { NextResponse } from 'next/server';
+import orders from "@/utils/data"
 
-let orders = [
-  { id: 1, itemName: 'Item 1', quantity: 2,status:"delivered" },
-  { id: 2, itemName: 'Item 2', quantity: 1,status:"delivered" },
-];
+
 
 function getOrderById(id) {
   return orders.find(order => order.id === id);
 }
 
-export async function GET(request,{params}) { 
+export async function GET(request, { params }) {
   const id = params.id;
 
   try {
@@ -24,9 +22,8 @@ export async function GET(request,{params}) {
   }
 }
 
-export async function PUT(request) {
-  const { searchParams } = new URL(request.url);
-  const id = searchParams.get('id');
+export async function PUT(request, { params }) {
+  const id = params.id;
 
   try {
     const data = await request.json();
@@ -41,9 +38,8 @@ export async function PUT(request) {
   }
 }
 
-export async function DELETE(request) {
-  const { searchParams } = new URL(request.url);
-  const id = searchParams.get('id');
+export async function DELETE(request, { params }) {
+  const id = params.id;
 
   try {
     const orderIndex = orders.findIndex(order => order.id === Number(id));

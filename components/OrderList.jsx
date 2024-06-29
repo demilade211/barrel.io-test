@@ -5,11 +5,26 @@ import { Checkbox } from 'antd';
 import Link from 'next/link';
 import { MdOutlineDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
+import axios from '@/services';
+import { useRouter, useParams } from 'next/navigation'
 
-const OrderList = ({ val,setOrders }) => {
+const OrderList = ({ val, setOrders }) => {
+
+    const router = useRouter();
+    
     const onChange = (e) => {
         console.log(`checked = ${e.target.checked}`);
     };
+
+    const handleDelete = async ( ) => {
+        try {
+            await axios.delete(`/api/orders/${val.id}`);
+            setOrders(prev => (prev.filter(ord => ord.id !== val.id)))
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     return (
         <PersonCard>
             <div className='left'>
@@ -23,8 +38,8 @@ const OrderList = ({ val,setOrders }) => {
                 </div>
             </div>
             <div className='flex items-center'>
-                <FaRegEdit className='mr-2' />
-                <MdOutlineDelete className='cursor-pointer' onClick={()=>setOrders(prev=>(prev.filter(ord=>ord.id!==val.id)))}/>
+                <FaRegEdit className='mr-2 cursor-pointer' onClick={() => router.push(`/orders/edit/${val.id}`)}/>
+                <MdOutlineDelete className='cursor-pointer' onClick={handleDelete} />
             </div>
         </PersonCard>
     )

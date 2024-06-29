@@ -20,8 +20,10 @@ const NewOrderPage = () => {
   return (
     <Layout show={show} setShow={setShow}>
       <Con>
-        <h1>Create New Order</h1>
-        <OrderForm onSubmit={handleSubmit} />
+        <div className='inner'>
+          <h1>Create New Order</h1>
+          <OrderForm onSubmit={handleSubmit} />
+        </div>
       </Con>
     </Layout>
   );
@@ -30,12 +32,17 @@ const NewOrderPage = () => {
 const Con = styled.div`  
   width: 100%;   
   padding: 30px 10px;  
+  display: flex;
+  justify-content: center;
   h1{
     font-size: 25px;
     font-weight: 600;
     text-align:center;
     margin-bottom: 30px;
 
+  }
+  .inner{
+    width: 500px;
   }
 `;
 
