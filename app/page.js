@@ -33,7 +33,7 @@ const HomePage = () => {
   const [showDrop, setShowDrop] = useState(false);
   const [jobQualifications, setJobQualifications] = useState(jobQualification);
   const [loading, setLoading] = useState(false);
-  const [show, setShow] = useState([]);
+  const [show, setShow] = useState(false);
 
   const onChange = (e) => {
     console.log(`checked = ${e.target.checked}`);
@@ -61,8 +61,7 @@ const HomePage = () => {
         <div className='flex justify-center item-center'><p>loading</p></div>
         :
         <Layout show={show} setShow={setShow}>
-          <Con>
-            
+          <Con> 
             <MainRightCon>
               <div className='header'>
                 <Row justify="space-between" align="middle">

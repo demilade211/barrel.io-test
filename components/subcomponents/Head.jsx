@@ -3,47 +3,7 @@
 import React from 'react'
 import styled from 'styled-components';    
 import { GiHamburgerMenu } from "react-icons/gi";
-import { useRouter, usePathname } from 'next/navigation'
-
-let status  = [
-    {
-        type: "Applied",
-        count: "234"
-    },
-    {
-        type: "Shortlisted",
-        count: "234"
-    },
-    {
-        type: "Technical Interview",
-        count: "234"
-    },
-    {
-        type: "Opportunity Browsing",
-        count: "211"
-    },
-    {
-        type: "Video Interview I",
-        count: "204"
-    },
-    {
-        type: "Video Interview II",
-        count: "234"
-    },
-    {
-        type: "Video Interview III",
-        count: "5234"
-    },
-    {
-        type: "Offer",
-        count: "234"
-    },
-    {
-        type: "Withdrawn",
-        count: "89"
-    },
-
-]
+import { useRouter, usePathname } from 'next/navigation' 
 
 const Head = ({show ,setShow }) => {
 
@@ -51,7 +11,7 @@ const Head = ({show ,setShow }) => {
     
     return (
         <HeadCon>
-            {<GiHamburgerMenu className='icon' onClick={() => setShow(!show)} />}
+            <GiHamburgerMenu className='icon' onClick={() => setShow(!show)} />
             <div className='btns-con'>
                 {/* <div className='btn'>
                     <img src="/images/home/tag.svg" alt="img" />
