@@ -2,7 +2,7 @@
 
 import React from 'react'
 import styled from 'styled-components';    
-
+import { GiHamburgerMenu } from "react-icons/gi";
  
 
 let status  = [
@@ -45,23 +45,10 @@ let status  = [
 
 ]
 
-const Head = ({showDrop,setShowDrop}) => {
+const Head = ({show ,setShow }) => {
     return (
         <HeadCon>
-            <div className='dropdown-con mb-3 lg:mb-0' onClick={() => setShowDrop(!showDrop)}>
-                <p className='drop-text'>Procurement</p>
-                <img src="../images/home/caret.svg" alt="img" />
-                {showDrop &&
-                    <div className={`drop-down ${showDrop && "no-bottom-radius"}`}>
-                        {status.map((val) => (
-                            <div className='drop-list'>
-                                <p>{val.type}</p>
-                                <span>{val.count}</span>
-                            </div>
-                        ))}
-                    </div>
-                }
-            </div>
+            {<GiHamburgerMenu className='icon' onClick={() => setShow(!show)} />}
             <div className='btns-con'>
                 {/* <div className='btn'>
                     <img src="/images/home/tag.svg" alt="img" />
@@ -93,12 +80,10 @@ const Head = ({showDrop,setShowDrop}) => {
 
 const HeadCon = styled.div`  
     width: 100%; 
-    display: flex;
-    flex-wrap:wrap;
+    display: flex; 
     justify-content:space-between;
-    align-items: center; 
-    margin-bottom:30px;
-    padding-left: 8px;
+    align-items: center;  
+    padding: 10px 25px; 
     .dropdown-con{ 
         display: flex;
         justify-content:space-between;
@@ -178,6 +163,9 @@ const HeadCon = styled.div`
     }
     .no-bottom-radius{
         border-radius: 16px 16px 0px 6px;
+    }
+    .icon{
+        cursor: pointer;
     }
     .btns-con{
         display: flex;

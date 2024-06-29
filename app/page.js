@@ -33,6 +33,7 @@ const HomePage = () => {
   const [showDrop, setShowDrop] = useState(false);
   const [jobQualifications, setJobQualifications] = useState(jobQualification);
   const [loading, setLoading] = useState(false);
+  const [show, setShow] = useState([]);
 
   const onChange = (e) => {
     console.log(`checked = ${e.target.checked}`);
@@ -59,9 +60,9 @@ const HomePage = () => {
       {loading ?
         <div className='flex justify-center item-center'><p>loading</p></div>
         :
-        <Layout>
+        <Layout show={show} setShow={setShow}>
           <Con>
-            <Head setShowDrop={setShowDrop} showDrop={showDrop} />
+            
             <MainRightCon>
               <div className='header'>
                 <Row justify="space-between" align="middle">
@@ -82,9 +83,8 @@ const HomePage = () => {
 
 const Con = styled.div`  
     width: 100%;  
-    background: rgba(246, 246, 249, 0.30);
-    height: 100vh;
-    padding: 30px 0px; 
+    background: rgba(246, 246, 249, 0.30); 
+    padding: 30px 10px; 
     overflow-y:scroll; 
     /* @media (max-width: 900px) {  
         grid-template-columns:100%;

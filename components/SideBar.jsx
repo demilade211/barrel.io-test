@@ -1,19 +1,22 @@
 'use client'
 
 import React from 'react'
-import styled from 'styled-components'; 
+import styled from 'styled-components';
 import { Avatar, Space } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { useRouter, usePathname } from 'next/navigation'
+import { GiHamburgerMenu } from "react-icons/gi";
 
-const SideBar = () => {
+
+const SideBar = ({ setShow, show }) => {
 
     const router = useRouter();
 
     return (
         <Con>
             <div className='top'>
-                <Avatar style={{marginBottom:"35px"}} onClick={() => router.push(`/`)} icon={<UserOutlined />} />
+                <GiHamburgerMenu className='mobile' style={{ marginBottom: "35px" }} onClick={() => setShow(!show)} />
+                <GiHamburgerMenu className='pc' style={{ marginBottom: "35px" }} />
                 <div className='img active' onClick={() => router.push(`/`)}><img src="/images/sidebar/home.svg" alt="img" /></div>
                 <div className='img'><img src="/images/sidebar/users.svg" alt="img" /></div>
                 <div className='img'><img src="/images/sidebar/cal.svg" alt="img" /></div>
@@ -25,9 +28,9 @@ const SideBar = () => {
             </div>
             <div className='bottom'>
                 <div className='img'>
-                    <img src="/images/sidebar/setting.svg"  alt="img" />
+                    <img src="/images/sidebar/setting.svg" alt="img" />
                 </div>
-                <Avatar style={{ backgroundColor: '#D7E5FD', color: '#B1CDFD',fontFamily:"Poppins",fontSize:"10px" }}>U</Avatar>
+                <Avatar style={{ backgroundColor: '#D7E5FD', color: '#B1CDFD', fontFamily: "Poppins", fontSize: "10px" }}>U</Avatar>
             </div>
         </Con>
     )
@@ -44,6 +47,7 @@ const Con = styled.div`
     align-items: center; 
     justify-content:space-between;
     position: fixed;
+    z-index: 3;
     .top{ 
         display: flex;
         flex-direction: column;
@@ -51,6 +55,18 @@ const Con = styled.div`
         .img{
             margin-bottom:20px;
             cursor: pointer;
+        }
+        .mobile{
+            display: none;
+            @media (max-width: 900px) {  
+                display: flex;
+            }
+        }
+        .pc{
+            display: flex;
+            @media (max-width: 900px) {  
+                display: none;
+            } 
         }
         .active{
             width: 100%;
