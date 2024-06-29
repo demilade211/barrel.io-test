@@ -85,7 +85,6 @@ const Con = styled.div`
     width: 100%;  
     background: rgba(246, 246, 249, 0.30); 
     padding: 30px 10px; 
-    overflow-y:scroll; 
     /* @media (max-width: 900px) {  
         grid-template-columns:100%;
     } */

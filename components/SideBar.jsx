@@ -26,7 +26,7 @@ const SideBar = ({ setShow, show }) => {
                 <div className='img'><img src="/images/sidebar/heart.svg" alt="img" /></div>
                 <div className='img'><img src="/images/sidebar/right.svg" alt="img" /></div>
             </div>
-            <div className='bottom'>
+            <div className='bottom' >
                 <div className='img'>
                     <img src="/images/sidebar/setting.svg" alt="img" />
                 </div>

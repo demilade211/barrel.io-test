@@ -3,7 +3,7 @@
 import React from 'react'
 import styled from 'styled-components';    
 import { GiHamburgerMenu } from "react-icons/gi";
- 
+import { useRouter, usePathname } from 'next/navigation'
 
 let status  = [
     {
@@ -46,6 +46,9 @@ let status  = [
 ]
 
 const Head = ({show ,setShow }) => {
+
+    const router = useRouter();
+    
     return (
         <HeadCon>
             {<GiHamburgerMenu className='icon' onClick={() => setShow(!show)} />}
@@ -65,7 +68,7 @@ const Head = ({show ,setShow }) => {
                 <div className='btn'>
                     <img src="/images/home/Mail.svg"  alt="img" />
                 </div> */}
-                <div className='move-con'>
+                <div className='move-con' onClick={() => router.push(`/orders/new`)}>
                     <div className='left'>
                         <p>Creat New Order</p>
                     </div>
