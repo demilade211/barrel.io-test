@@ -1,5 +1,6 @@
 import "./globals.css";
-import StyledComponentsRegistry from './registry' 
+import StyledComponentsRegistry from './registry'
+import { MyContextProvider } from '../context';
 
 export const metadata = {
   title: 'Procurement',
@@ -17,9 +18,11 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <StyledComponentsRegistry>
-          {children}
+          <MyContextProvider>
+            {children}
+          </MyContextProvider>
         </StyledComponentsRegistry>
-      </body> 
+      </body>
     </html>
   );
 }

@@ -11,6 +11,7 @@ import Head from '@/components/subcomponents/Head';
 
 
 
+
 const HomePage = () => {
 
   const jobQualification = [
