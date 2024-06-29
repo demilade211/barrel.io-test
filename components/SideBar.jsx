@@ -4,13 +4,17 @@ import React from 'react'
 import styled from 'styled-components'; 
 import { Avatar, Space } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
+import { useRouter, usePathname } from 'next/navigation'
 
 const SideBar = () => {
+
+    const router = useRouter();
+
     return (
         <Con>
             <div className='top'>
-                <Avatar style={{marginBottom:"35px"}} icon={<UserOutlined />} />
-                <div className='img active'><img src="/images/sidebar/home.svg" alt="img" /></div>
+                <Avatar style={{marginBottom:"35px"}} onClick={() => router.push(`/`)} icon={<UserOutlined />} />
+                <div className='img active' onClick={() => router.push(`/`)}><img src="/images/sidebar/home.svg" alt="img" /></div>
                 <div className='img'><img src="/images/sidebar/users.svg" alt="img" /></div>
                 <div className='img'><img src="/images/sidebar/cal.svg" alt="img" /></div>
                 <div className='img'><img src="/images/sidebar/share.svg" alt="img" /></div>
